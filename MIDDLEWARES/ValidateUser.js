@@ -10,11 +10,15 @@ const ValidateUser = async (req, res, next) => {
     try {
         const verifiedToken = jwt.verify(tokenToValidate, process.env.JWT_SECRET)
         req.user = verifiedToken
+        
+        return next()
     } catch (error) {
         res.status(500).json({
             success: false,
             message: "something went wrong in the server"
         })
     }
-    next()
+    
 }
+
+module.exports = ValidateUser
