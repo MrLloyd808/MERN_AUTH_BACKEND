@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken")
 
 const LoginUser = async (req, res) => {
    const {email, password} = req.body
-
+ 
    try {
      // find user by email
       const findUser = await User.findOne({email})
@@ -39,7 +39,7 @@ const LoginUser = async (req, res) => {
    // return signed token with response
 
    res.cookie("token", token, {
-    httpOnnly: true,
+    httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "strict",
     maxAge: 24 * 60 * 60 * 1000

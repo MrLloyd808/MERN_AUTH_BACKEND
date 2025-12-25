@@ -4,15 +4,11 @@ const isAdmin =  (req, res, next) => {
             success: false,
             message: "rights reserved for admins only"
         })
-
-        res.status(200).json({
-            success: true,
-            message: "welcome admin " + req.user.username
-        })
         
-        return next()
+        next()
+
     } catch (error) {
-        res.status({
+        res.status(500).json({
             success: false,
             message: "something went wrong in the server"
         })

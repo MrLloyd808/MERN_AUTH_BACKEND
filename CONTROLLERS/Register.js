@@ -20,7 +20,7 @@ const User = require("../MODELS/UserModel")
     })
 
     // check if anything was submitted at all
-    if (!username || !email || !firstname || !lastname || !role || !password) return res.status(400).json({
+    if (!username || !email || !firstname || !lastname || !password) return res.status(400).json({
         success: false,
         message: "all fields are required"
     })

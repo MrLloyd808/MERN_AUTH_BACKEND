@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, "static")))
 app.use('/auth', Userrouter)
-app.use("/", PageRouter)
+app.use("/api", PageRouter)
 
 mongoose.connect(process.env.DB_URI)
 .then(() => app.listen(8000, () => console.log('server is listenig')))
