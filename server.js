@@ -1,0 +1,22 @@
+const express = require('express')
+require("dotenv").config()
+const cors = require('cors')
+const mongoose = require("mongoose")
+const cookieParser = require("cookie-parser")
+const path = require("path")
+
+const app = express()
+app.use(cors())
+app.use(cookieParser())
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+app.use(express.static(path.join(__dirname, "static")))
+
+mongoose.connect(process.env.DB_URI)
+.then(app.listen(8000, () => console.log('server is listenig')))
+.catch((err) => console.error(err))
+
+app.get("/", (req, res) => {
+    res.render("index.html")
+    
+})
