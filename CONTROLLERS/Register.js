@@ -53,3 +53,5 @@ const User = require("../MODELS/UserModel")
     })
   }
 }
+
+module.exports = registerUser
