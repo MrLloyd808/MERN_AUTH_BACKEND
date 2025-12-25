@@ -17,9 +17,9 @@ app.use('/auth', Userrouter)
 app.use("/", PageRouter)
 
 mongoose.connect(process.env.DB_URI)
-.then(app.listen(8000, () => console.log('server is listenig')))
+.then(() => app.listen(8000, () => console.log('server is listenig')))
 .catch((err) => console.error(err))
 
 app.get("/", (req, res) => {
-    res.render("index.html")
+    res.sendFile("index.html")
 })
