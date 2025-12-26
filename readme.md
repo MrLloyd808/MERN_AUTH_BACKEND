@@ -1,36 +1,92 @@
-    <h1>Blog Api -- Routes documantation</h1>
+ # 📝 Blog API — Routes Documentation
 
-     <h3>/auth</h3>
-     <p>- main route for authentication</p>
+## 🔐 `/auth`
 
-     <h4>/auth/register</h4>
-     <p>- sub route reserved for registering</p>
-     <code>
-        // POST  <br>
-        // data eg
-        <br> <br>
+Main route for authentication.
 
-        { <br>
-            "email": "email@email.com", <br>
-            "username": "bigahdih", <br>
-            "firstname": "John", <br>
-            "lastname": "Doe", <br>
-            "password": "abc123!@#"
-             <br>
-        }
-     </code>
+---
 
-     <h4>/auth/login</h4>
-     <p>- sub route reserved for logging in</p>
+## ➕ `POST /auth/register`
 
-     <code>
-        // POST  <br>
-        // data eg
-        <br> <br>
+**Register a new user**
 
-        { <br>
-            "email": "email@email.com", <br>
-            "password": "abc123!@#"
-             <br>
-        }
-     </code>
+### Request Body
+
+```json
+{
+  "email": "email@email.com",
+  "username": "bigahdih",
+  "firstname": "John",
+  "lastname": "Doe",
+  "password": "abc123!@#"
+}
+```
+
+### Description
+
+Creates a new user account and stores credentials securely.
+
+---
+
+## 🔑 `POST /auth/login`
+
+**Authenticate an existing user**
+
+### Request Body
+
+```json
+{
+  "email": "email@email.com",
+  "password": "abc123!@#"
+}
+```
+
+### Description
+
+Validates user credentials and returns an authentication token.
+
+---
+
+## 🔒 `/api`
+
+Main route for **protected endpoints**. Requires authentication and role validation.
+
+---
+
+## 🏠 `GET /api/home`
+
+**Protected home route**
+
+### Description
+
+Accessible only to authenticated users.
+
+```http
+GET /api/home
+```
+
+---
+
+## 🛡️ `GET /api/admin`
+
+**Admin-only route**
+
+### Description
+
+Accessible only to users with the `admin` role.
+
+```http
+GET /api/admin
+```
+
+---
+
+## 📌 Notes
+
+* All requests use `application/json`
+* JWT authentication required for `/api/*` routes
+* Admin routes require `role: admin`
+
+---
+
+✨ *Clean, readable, and GitHub-ready* ✨
