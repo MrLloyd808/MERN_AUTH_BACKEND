@@ -4,7 +4,7 @@ const ValidateUser = async (req, res, next) => {
     const tokenToValidate = req.cookies.token
     if (!tokenToValidate) return res.status(401).json({
         success: false,
-        message: "no token submitted"
+        message: "no token submitted, you need to login"
     })
 
     try {
