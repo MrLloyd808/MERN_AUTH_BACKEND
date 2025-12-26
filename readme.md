@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>blog API</title>
-</head>
-<body>
     <h1>Blog Api -- Routes documantation</h1>
 
      <h3>/auth</h3>
@@ -25,6 +17,3 @@
 
      <h4>/api/admin</h4>
      <p>- sub route is reserved for admins</p>
-
-</body>
-</html>

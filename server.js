@@ -17,7 +17,7 @@ app.use('/auth', Userrouter)
 app.use("/api", PageRouter)
 
 mongoose.connect(process.env.DB_URI)
-.then(() => app.listen(8000, () => console.log('server is listenig')))
+.then(() => app.listen(process.env.PORT, () => console.log('server is listenig on port: ' + process.env.PORT)))
 .catch((err) => console.error(err))
 
 app.get("/", (req, res) => {
