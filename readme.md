@@ -88,5 +88,3 @@ GET /api/admin
 * Admin routes require `role: admin`
 
 ---
-
-✨ *Clean, readable, and GitHub-ready* ✨

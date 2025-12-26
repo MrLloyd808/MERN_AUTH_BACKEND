@@ -3,62 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>blog API</title>
+    <title>Blog API</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0f172a;
+            color: #e5e7eb;
+            margin: 0;
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            color: #38bdf8;
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            color: #22c55e;
+            margin-top: 40px;
+        }
+
+        h4 {
+            color: #facc15;
+            margin-top: 25px;
+        }
+
+        p {
+            color: #cbd5f5;
+            margin-bottom: 10px;
+        }
+
+        code {
+            display: block;
+            background-color: #020617;
+            border-left: 4px solid #38bdf8;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 6px;
+            font-family: "Courier New", monospace;
+            color: #e5e7eb;
+            white-space: pre-wrap;
+        }
+
+        .route {
+            background-color: #020617;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Blog Api -- Routes documantation</h1>
 
-     <h3>/auth</h3>
-     <p>- main route for authentication</p>
+    <h1>Blog API — Routes Documentation</h1>
 
-     <h4>/auth/register</h4>
-     <p>- sub route reserved for registering</p>
-     <code>
-        // POST  <br>
-        // data eg
-        <br> <br>
+    <div class="route">
+        <h3>/auth</h3>
+        <p>Main route for authentication</p>
 
-        { <br>
-            "email": "email@email.com", <br>
-            "username": "bigahdih", <br>
-            "firstname": "John", <br>
-            "lastname": "Doe", <br>
-            "password": "abc123!@#"
-             <br>
-        }
-     </code>
+        <h4>POST /auth/register</h4>
+        <p>Register a new user</p>
+        <code>
+{
+  "email": "email@email.com",
+  "username": "bigahdih",
+  "firstname": "John",
+  "lastname": "Doe",
+  "password": "abc123!@#"
+}
+        </code>
 
-     <h4>/auth/login</h4>
-     <p>- sub route reserved for logging in</p>
+        <h4>POST /auth/login</h4>
+        <p>Login an existing user</p>
+        <code>
+{
+  "email": "email@email.com",
+  "password": "abc123!@#"
+}
+        </code>
+    </div>
 
-     <code>
-        // POST  <br>
-        // data eg
-        <br> <br>
+    <div class="route">
+        <h3>/api</h3>
+        <p>Main route for protected endpoints</p>
 
-        { <br>
-            "email": "email@email.com", <br>
-            "password": "abc123!@#"
-             <br>
-        }
-     </code>
+        <h4>GET /api/home</h4>
+        <p>Protected home route (authenticated users only)</p>
+        <code>
+GET /api/home
+        </code>
 
-     <h3>/api</h3>
-     <p>- main route for protecting routes/ to check roles and if validated or not</p>
-
-     <h4>/api/home</h4>
-     <p>- protected home page</p>
-
-     <code>
-        // GET
-     </code>
-
-     <h4>/api/admin</h4>
-     <p>- sub route is reserved for admins</p>
-
-     <code>
-        // GET
-     </code>
+        <h4>GET /api/admin</h4>
+        <p>Admin-only route</p>
+        <code>
+GET /api/admin
+        </code>
+    </div>
 
 </body>
 </html>
