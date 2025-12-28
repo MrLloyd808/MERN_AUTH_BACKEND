@@ -6,14 +6,16 @@ const Pagerouter = express.Router()
 Pagerouter.get("/home", ValidateUser, (req, res) => {
   res.status(200).json({
     success: true,
-    message: "authorized"
+    message: "authorized",
+    user: req.user
   })
 })
 
 Pagerouter.get("/admin", ValidateUser, Admin, (req, res) => {
     res.status(200).json({
         success: true,
-        message: "admin authorized"
+        message: "admin authorized",
+        user: req.user
     })
 })
 

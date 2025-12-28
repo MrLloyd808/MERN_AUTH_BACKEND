@@ -13,9 +13,9 @@ const ValidateUser = async (req, res, next) => {
          next()
 
     } catch (error) {
-        res.status(500).json({
+        res.status(401).json({
             success: false,
-            message: "something went wrong in the server"
+            message: "invalid token"
         })
     }
     

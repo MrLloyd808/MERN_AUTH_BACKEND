@@ -4,21 +4,23 @@ const cors = require('cors')
 const mongoose = require("mongoose")
 const cookieParser = require("cookie-parser")
 const path = require("path")
-const Userrouter = require("./ROUTERS/UserRouter")
+const UserRouter = require("./ROUTERS/UserRouter")
 const PageRouter = require("./ROUTERS/PageRoutes")
 
 const app = express()
+
+mongoose.connect(process.env.DB_URI)
+.then(() => app.listen(process.env.PORT, () => console.log('server is listenig on port: ' + process.env.PORT)))
+.catch((err) => console.error(err))
+
+
 app.use(cors())
 app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, "static")))
-app.use('/auth', Userrouter)
+app.use('/auth', UserRouter)
 app.use("/api", PageRouter)
-
-mongoose.connect(process.env.DB_URI)
-.then(() => app.listen(process.env.PORT, () => console.log('server is listenig on port: ' + process.env.PORT)))
-.catch((err) => console.error(err))
 
 app.get("/", (req, res) => {
     res.sendFile("index.html")
