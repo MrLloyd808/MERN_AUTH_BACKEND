@@ -15,7 +15,7 @@ mongoose.connect(process.env.DB_URI)
 
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "http://localhost:5173" || "https://mernauthpractice.netlify.app/",
     credentials: true
 }))
 
