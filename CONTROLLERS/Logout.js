@@ -3,7 +3,7 @@
       res.clearCookie("token", {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        samesite: 'strict'
+        samesite: 'none'
       })
 
       res.status(200).json({
