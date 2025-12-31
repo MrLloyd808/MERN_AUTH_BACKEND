@@ -79,12 +79,34 @@ Accessible only to users with the `admin` role.
 GET /api/admin
 ```
 
+## 🔒 `/post`
+
+Main route for **protected endpoints**. Requires authentication and role validation.
+
+---
+
+## `GET /post/makepost`
+
+**Routes all Authemticated users can make post**
+
+### Description
+
+Data to be sent should include following fields
+
+```json
+{
+  "title": "post title",
+  "body": "data about post"
+}
+
+```
+
 ---
 
 ## 📌 Notes
 
-* All requests use `application/json`
-* JWT authentication required for `/api/*` routes
+* All requests use `application/json` or `urlencoded`
+* JWT authentication required for `/api/*` and `/post/*` routes
 * Admin routes require `role: admin`
 
 ---
