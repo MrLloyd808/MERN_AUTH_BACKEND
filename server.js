@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser")
 const path = require("path")
 const UserRouter = require("./ROUTERS/UserRouter")
 const PageRouter = require("./ROUTERS/PageRoutes")
+const PostRouter = require("./ROUTERS/PostRouter")
 
 const app = express()
 
@@ -28,6 +29,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, "static")))
 app.use('/auth', UserRouter)
 app.use("/api", PageRouter)
+app.use("/post", PostRouter)
 
 app.get("/", (req, res) => {
     res.sendFile("index.html")
