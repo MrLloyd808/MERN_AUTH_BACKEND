@@ -15,7 +15,7 @@ const MakePost = async (req, res) => {
             author: req.user.id
         })
 
-        res.status(200).json({
+        res.status(201).json({
             success: true,
             message: "post created successfully",
             post: newPost
