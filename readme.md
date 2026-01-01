@@ -85,7 +85,7 @@ Main route for **protected endpoints**. Requires authentication and role validat
 
 ---
 
-## `GET /post/makepost`
+## `POST /post/makepost`
 
 **Routes all Authemticated users can make post**
 
