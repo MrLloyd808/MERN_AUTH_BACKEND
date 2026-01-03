@@ -102,6 +102,15 @@ Data to be sent should include following fields
 ```
 
 ---
+## `DELETE /post/:id`
+
+**ONLY AUTHORIZED USERS CAN DELETE**
+
+### Description
+
+request shoud include the id in the params
+
+---
 
 ## 📌 Notes
 
