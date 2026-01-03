@@ -4,6 +4,11 @@ const DeletePost = async (req, res) => {
     
     const { id } = req.params
 
+    if (!id) return res.status(400).json({
+        success: false,
+        message: "id is required"
+    })
+
     try {
         const thisPost = await PostSchema.findById(id)
         if (!thisPost) return res.status(404).json({
